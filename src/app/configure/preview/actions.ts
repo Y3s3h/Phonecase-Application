@@ -26,6 +26,15 @@ export const createCheckoutSession = async ({
     throw new Error('You need to be logged in')
   }
 
+  await db.user.upsert({
+    where: { id: user.id },
+    update: {},
+    create: {
+      id: user.id,
+      email: user.email ?? '',
+    },
+  })
+
   const { finish, material } = configuration
 
   let price = BASE_PRICE
