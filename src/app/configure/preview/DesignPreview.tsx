@@ -54,13 +54,9 @@ const DesignPreview = ({ configuration }: { configuration: Configuration }) => {
       })
     },
   })
-  // const handleCheckout = () => {
-  //   createPaymentSession({ configId: id });
-  // };
-  
 
   const handleCheckout = () => {
-    if (user || !user) {
+    if (user) {
       // create payment session
       createPaymentSession({ configId: id })
     } else {
