@@ -54,21 +54,21 @@ const DesignPreview = ({ configuration }: { configuration: Configuration }) => {
       })
     },
   })
-  const handleCheckout = () => {
-    createPaymentSession({ configId: id });
-  };
+  // const handleCheckout = () => {
+  //   createPaymentSession({ configId: id });
+  // };
   
 
-  // const handleCheckout = () => {
-  //   if (user || !user) {
-  //     // create payment session
-  //     createPaymentSession({ configId: id })
-  //   } else {
-  //     // need to log in
-  //     localStorage.setItem('configurationId', id)
-  //     setIsLoginModalOpen(true)
-  //   }
-  // }
+  const handleCheckout = () => {
+    if (user || !user) {
+      // create payment session
+      createPaymentSession({ configId: id })
+    } else {
+      // need to log in
+      localStorage.setItem('configurationId', id)
+      setIsLoginModalOpen(true)
+    }
+  }
 
   return (
     <>
